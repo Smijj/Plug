@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cawk5rhg0juk4"
-path="res://.godot/imported/GameSetDesign.blend-bf0c29c34e4e16ab73a80e7a4537a6ba.scn"
+uid="uid://c4qp6qopni3n6"
+path="res://.godot/imported/PlayerCharacter.blend-7a84b0825d8fea92bf7dae889d272195.scn"
 
 [deps]
 
-source_file="res://Scenes/GameSetDesign.blend"
-dest_files=["res://.godot/imported/GameSetDesign.blend-bf0c29c34e4e16ab73a80e7a4537a6ba.scn"]
+source_file="res://Creative Assets/PlayerCharacter.blend"
+dest_files=["res://.godot/imported/PlayerCharacter.blend-7a84b0825d8fea92bf7dae889d272195.scn"]
 
 [params]
 
@@ -26,32 +26,13 @@ meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
-animation/fps=24.0
+animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"BG_Base": {
-"use_external/enabled": true,
-"use_external/path": "res://Creative Assets/Materials/BG_Base.tres"
-},
-"BG_Focus": {
-"use_external/enabled": true,
-"use_external/path": "res://Creative Assets/Materials/BG_Focus.tres"
-},
-"BG_Menu": {
-"use_external/enabled": true,
-"use_external/path": "res://Creative Assets/Materials/BG_Menu.tres"
-},
-"Gold": {
-"use_external/enabled": true,
-"use_external/path": "res://Creative Assets/Materials/Gold.tres"
-}
-}
-}
-blender/nodes/visible=2
+_subresources={}
+blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
 blender/nodes/cameras=true

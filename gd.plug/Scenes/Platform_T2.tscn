@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://di560gvx02elj"]
+
+[ext_resource type="PackedScene" uid="uid://b32aiuo2aiyun" path="res://Creative Assets/Models/Platform_Type02.fbx" id="1_bpcii"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_plb4f"]
+margin = 0.1
+size = Vector3(0.0518341, 0.00775146, 0.0468292)
+
+[node name="PlatformT2_0" type="Node3D"]
+
+[node name="Platform_Type02" parent="." instance=ExtResource("1_bpcii")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_Type02/Platform_Type02" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.42109e-14, 0, 1.42109e-14, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_Type02/Platform_Type02/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.00345571, -0.999994, 0, 0.999994, 0.00345571, -0.0316696, 0.000445512, 0.00308077)
+shape = SubResource("BoxShape3D_plb4f")
+
+[editable path="Platform_Type02"]

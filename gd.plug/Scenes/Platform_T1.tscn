@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddq38gs1w1plm"]
+
+[ext_resource type="PackedScene" uid="uid://chik1hmathmwi" path="res://Creative Assets/Models/Platform_Type01.fbx" id="1_jssq4"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_j2obg"]
+margin = 0.5
+height = 0.00531927
+radius = 0.0214135
+
+[node name="PlatformT1_0" type="Node3D"]
+
+[node name="Platform_Type01" parent="." instance=ExtResource("1_jssq4")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_Type01/Platform" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_Type01/Platform/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.00345571, -0.999994, 0, 0.999994, 0.00345571, 0, 0, 0)
+shape = SubResource("CylinderShape3D_j2obg")
+
+[editable path="Platform_Type01"]

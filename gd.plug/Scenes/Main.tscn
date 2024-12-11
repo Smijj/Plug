@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmapucjd5ojl"]
+[gd_scene load_steps=10 format=3 uid="uid://dmapucjd5ojl"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerCtrl.gd" id="1_nnl2h"]
+[ext_resource type="PackedScene" uid="uid://br785p1l4dqhs" path="res://Creative Assets/Models/PlayerCharacter.glb" id="2_1ftrv"]
 [ext_resource type="PackedScene" uid="uid://cawk5rhg0juk4" path="res://Scenes/GameSetDesign.blend" id="2_y8hdu"]
 [ext_resource type="PackedScene" uid="uid://ddq38gs1w1plm" path="res://Scenes/Platform_T1.tscn" id="3_f5rx6"]
 [ext_resource type="PackedScene" uid="uid://di560gvx02elj" path="res://Scenes/Platform_T2.tscn" id="4_36ity"]
@@ -27,12 +28,30 @@ script = ExtResource("1_nnl2h")
 SPEED = 9.0
 JUMP_VELOCITY = 15.0
 
+[node name="PlayerCharacter" parent="CharacterBody3D" instance=ExtResource("2_1ftrv")]
+
+[node name="Skeleton3D" parent="CharacterBody3D/PlayerCharacter/Player_Armature" index="0"]
+bones/0/position = Vector3(0, 0, 0)
+bones/0/rotation = Quaternion(0, 0.707107, 0.707107, 0)
+bones/1/rotation = Quaternion(-3.13947e-08, 0.695809, 0.718227, -3.04148e-08)
+bones/2/rotation = Quaternion(0.0158516, -4.37059e-08, 6.92898e-10, 0.999874)
+bones/3/rotation = Quaternion(0, 2.28785e-38, -1.11022e-16, 1)
+bones/4/position = Vector3(2.22449e-08, 1.58828, -0.254452)
+bones/4/rotation = Quaternion(0.999874, 2.58256e-09, -7.54885e-08, -0.0158516)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.0158516, -4.36839e-08, -6.92549e-10, 0.999874)
+bones/6/rotation = Quaternion(0.0158516, -4.36839e-08, -6.92549e-10, 0.999874)
+
+[node name="AnimationPlayer" parent="CharacterBody3D/PlayerCharacter" index="1"]
+autoplay = "Idle"
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_pmynx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_l28q1")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
@@ -71,4 +90,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.6151, 2.30648, 0)
 [node name="PlatformT2_1" parent="Platforms" instance=ExtResource("4_36ity")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 14.8744, 4.64257, -9.39054)
 
+[editable path="CharacterBody3D/PlayerCharacter"]
 [editable path="GameSetDesign"]

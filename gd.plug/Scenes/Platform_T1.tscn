@@ -9,12 +9,12 @@ radius = 0.0214135
 
 [node name="PlatformT1_0" type="Node3D"]
 
-[node name="Platform_Type01" parent="." instance=ExtResource("1_jssq4")]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Platform_Type01/Platform" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_Type01/Platform/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.00345571, -0.999994, 0, 0.999994, 0.00345571, 0, 0, 0)
 shape = SubResource("CylinderShape3D_j2obg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="Platform_Type01" parent="." instance=ExtResource("1_jssq4")]
 
 [editable path="Platform_Type01"]

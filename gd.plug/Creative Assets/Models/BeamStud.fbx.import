@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://chik1hmathmwi"
-path="res://.godot/imported/Platform_Type01.fbx-5d10e237a24daa6366f22071dca1efd1.scn"
+uid="uid://ftvg4jv4pyyn"
+path="res://.godot/imported/BeamStud.fbx-d8e331d6a1456c05a7db91912acabc45.scn"
 
 [deps]
 
-source_file="res://Creative Assets/Models/Platform_Type01.fbx"
-dest_files=["res://.godot/imported/Platform_Type01.fbx-5d10e237a24daa6366f22071dca1efd1.scn"]
+source_file="res://Creative Assets/Models/BeamStud.fbx"
+dest_files=["res://.godot/imported/BeamStud.fbx-d8e331d6a1456c05a7db91912acabc45.scn"]
 
 [params]
 
@@ -33,10 +33,6 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"BG_Focus": {
-"use_external/enabled": false,
-"use_external/path": "res://Creative Assets/Materials/BG_Focus.tres"
-},
 "Emmision": {
 "use_external/enabled": true,
 "use_external/path": "res://Creative Assets/Materials/Emmision.tres"

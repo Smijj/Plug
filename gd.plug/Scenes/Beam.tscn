@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7td8g327rc4e"]
+
+[ext_resource type="PackedScene" uid="uid://c7tnof4kjo36c" path="res://Creative Assets/Models/Beam.fbx" id="1_gwqjr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_plb4f"]
+margin = 0.1
+size = Vector3(35.804, 1.14575, 1)
+
+[node name="Beam" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0772705, -0.0135498, 0)
+shape = SubResource("BoxShape3D_plb4f")
+
+[node name="Beam" parent="." instance=ExtResource("1_gwqjr")]

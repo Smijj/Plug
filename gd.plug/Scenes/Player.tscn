@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddhxiie06mrmx"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerCtrl.gd" id="1_sjcve"]
+[ext_resource type="PackedScene" uid="uid://br785p1l4dqhs" path="res://Creative Assets/Models/PlayerCharacter.glb" id="2_1uq68"]
+[ext_resource type="Script" path="res://Scripts/CameraCtrl.gd" id="3_fpjox"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pmynx"]
+margin = 0.1
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_Anim", "_CharacterModel")]
+safe_margin = 0.005
+script = ExtResource("1_sjcve")
+SPEED = 9.0
+JUMP_VELOCITY = 15.0
+RotationSmoothing = 0.3
+_Anim = NodePath("PlayerCharacter/AnimationPlayer")
+_CharacterModel = NodePath("PlayerCharacter")
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("2_1uq68")]
+
+[node name="Skeleton3D" parent="PlayerCharacter/Player_Armature" index="0"]
+bones/0/position = Vector3(0, 0, 0)
+bones/0/rotation = Quaternion(0, 0.707107, 0.707107, 0)
+bones/1/rotation = Quaternion(-3.13947e-08, 0.695809, 0.718227, -3.04148e-08)
+bones/2/rotation = Quaternion(0.0158516, -4.37059e-08, 6.92898e-10, 0.999874)
+bones/3/rotation = Quaternion(0, 2.28785e-38, -1.11022e-16, 1)
+bones/4/position = Vector3(2.22449e-08, 1.58828, -0.254452)
+bones/4/rotation = Quaternion(0.999874, 2.58256e-09, -7.54885e-08, -0.0158516)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.0158516, -4.36839e-08, -6.92549e-10, 0.999874)
+bones/6/rotation = Quaternion(0.0158516, -4.36839e-08, -6.92549e-10, 0.999874)
+
+[node name="AnimationPlayer" parent="PlayerCharacter" index="1"]
+autoplay = "Idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_pmynx")
+
+[node name="CameraOrigin" type="Node3D" parent="." node_paths=PackedStringArray("_CamerYPivot", "_CameraXPivot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49066, 0.367003)
+script = ExtResource("3_fpjox")
+_CamerYPivot = NodePath("..")
+_CameraXPivot = NodePath("SpringArm3D")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraOrigin"]
+spring_length = 4.0
+margin = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="CameraOrigin/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 0.994647, 0.103331, 0, -0.103331, 0.994647, 0, 0.0215201, 4)
+current = true
+
+[editable path="PlayerCharacter"]

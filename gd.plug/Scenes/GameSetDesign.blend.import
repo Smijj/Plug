@@ -34,19 +34,23 @@ import_script/path=""
 _subresources={
 "materials": {
 "BG_Base": {
-"use_external/enabled": true,
+"use_external/enabled": false,
 "use_external/path": "res://Creative Assets/Materials/BG_Base.tres"
 },
 "BG_Focus": {
-"use_external/enabled": true,
+"use_external/enabled": false,
 "use_external/path": "res://Creative Assets/Materials/BG_Focus.tres"
 },
 "BG_Menu": {
-"use_external/enabled": true,
+"use_external/enabled": false,
 "use_external/path": "res://Creative Assets/Materials/BG_Menu.tres"
 },
-"Gold": {
+"Emmision": {
 "use_external/enabled": true,
+"use_external/path": "res://Creative Assets/Materials/Emmision.tres"
+},
+"Gold": {
+"use_external/enabled": false,
 "use_external/path": "res://Creative Assets/Materials/Gold.tres"
 }
 }

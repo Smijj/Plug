@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://chik1hmathmwi"
-path="res://.godot/imported/Platform_Type01.fbx-5d10e237a24daa6366f22071dca1efd1.scn"
+uid="uid://c60q3obxgl4qh"
+path="res://.godot/imported/Light.fbx-93a8b734c238cd840852434df4c2883d.scn"
 
 [deps]
 
-source_file="res://Creative Assets/Models/Platform_Type01.fbx"
-dest_files=["res://.godot/imported/Platform_Type01.fbx-5d10e237a24daa6366f22071dca1efd1.scn"]
+source_file="res://Creative Assets/Models/Light.fbx"
+dest_files=["res://.godot/imported/Light.fbx-93a8b734c238cd840852434df4c2883d.scn"]
 
 [params]
 
@@ -31,18 +31,7 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"BG_Focus": {
-"use_external/enabled": false,
-"use_external/path": "res://Creative Assets/Materials/BG_Focus.tres"
-},
-"Emmision": {
-"use_external/enabled": true,
-"use_external/path": "res://Creative Assets/Materials/Emmision.tres"
-}
-}
-}
+_subresources={}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

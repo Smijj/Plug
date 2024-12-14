@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://b31liu8vkiclc"]
+
+[ext_resource type="Script" path="res://Scenes/CutsceneManager.gd" id="1_084lj"]
+[ext_resource type="PackedScene" uid="uid://bjmy1smd2yon5" path="res://Creative Assets/Animations/Cutscene_Intro.blend" id="1_yjmsw"]
+
+[node name="CutsceneManager" type="Node3D" node_paths=PackedStringArray("_CutsceneNodes")]
+script = ExtResource("1_084lj")
+_RefreshCutsceneAnimReferences = true
+_CutsceneNodes = [NodePath("Cutscene_Intro")]
+Cutscenes = {
+"Cutscene_Intro": Object(AnimationPlayer,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":1,"libraries":{
+"": null
+},"autoplay":"","playback_auto_capture":true,"playback_auto_capture_duration":-1.0,"playback_auto_capture_transition_type":0,"playback_auto_capture_ease_type":0,"playback_default_blend_time":0.0,"speed_scale":1.0,"movie_quit_on_finish":false,"blend_times":[],"script":null)
+
+}
+
+[node name="Cutscene_Intro" parent="." instance=ExtResource("1_yjmsw")]
+
+[node name="Skeleton3D" parent="Cutscene_Intro/Spawn_Armature" index="0"]
+bones/0/rotation = Quaternion(0.793353, -1.67739e-07, -1.03973e-07, 0.608762)
+
+[node name="Skeleton3D" parent="Cutscene_Intro/Player_Armature" index="0"]
+bones/0/position = Vector3(0, 0, -0.202964)
+bones/1/rotation = Quaternion(-3.13947e-08, 0.695809, 0.718227, -3.04148e-08)
+bones/2/rotation = Quaternion(0.129173, -3.58471e-08, 5.76519e-09, 0.991622)
+bones/3/rotation = Quaternion(0.0557229, 2.27478e-10, 2.12626e-09, 0.998446)
+bones/4/rotation = Quaternion(0.999874, 2.34635e-09, -6.05891e-08, -0.0158516)
+bones/5/position = Vector3(0.950045, 0.552292, 0.00347387)
+
+[node name="Camera_Intro" parent="Cutscene_Intro" index="3"]
+transform = Transform3D(0.93358, -2.39372e-08, -0.358368, 2.97704e-08, 1, 1.07595e-08, 0.358368, -2.07136e-08, 0.93358, -47.5813, 1.23798, 4.71011)
+
+[editable path="Cutscene_Intro"]

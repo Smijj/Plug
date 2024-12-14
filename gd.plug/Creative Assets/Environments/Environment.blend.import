@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dr0dn4fj1vi6v"
-path="res://.godot/imported/Test.blend-fb25c5a34bbaed0c7ff15fc0787c9944.scn"
+uid="uid://cawk5rhg0juk4"
+path="res://.godot/imported/Environment.blend-135980dd6d9737dad83ffb4d3df5a7aa.scn"
 
 [deps]
 
-source_file="res://Creative Assets/Test.blend"
-dest_files=["res://.godot/imported/Test.blend-fb25c5a34bbaed0c7ff15fc0787c9944.scn"]
+source_file="res://Creative Assets/Environments/Environment.blend"
+dest_files=["res://.godot/imported/Environment.blend-135980dd6d9737dad83ffb4d3df5a7aa.scn"]
 
 [params]
 
@@ -26,19 +26,42 @@ meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
-animation/fps=30
+animation/fps=24.0
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
-blender/nodes/visible=0
+_subresources={
+"materials": {
+"BG_Base": {
+"use_external/enabled": false,
+"use_external/path": "res://Creative Assets/Materials/BG_Base.tres"
+},
+"BG_Focus": {
+"use_external/enabled": false,
+"use_external/path": "res://Creative Assets/Materials/BG_Focus.tres"
+},
+"BG_Menu": {
+"use_external/enabled": false,
+"use_external/path": "res://Creative Assets/Materials/BG_Menu.tres"
+},
+"Emmision": {
+"use_external/enabled": true,
+"use_external/path": "res://Creative Assets/Materials/Emmision.tres"
+},
+"Gold": {
+"use_external/enabled": false,
+"use_external/path": "res://Creative Assets/Materials/Gold.tres"
+}
+}
+}
+blender/nodes/visible=2
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
 blender/nodes/cameras=true
 blender/nodes/custom_properties=true
 blender/nodes/modifiers=1
-blender/meshes/colors=true
+blender/meshes/colors=false
 blender/meshes/uvs=true
 blender/meshes/normals=true
 blender/meshes/tangents=true

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c4qp6qopni3n6"
-path="res://.godot/imported/PlayerCharacter.blend-346be6324bdd81355868728c5035a91d.scn"
+uid="uid://bjmy1smd2yon5"
+path="res://.godot/imported/Cutscene_Intro.blend-f4a3f42fed8ae916fbea7363681c987b.scn"
 
 [deps]
 
-source_file="res://Creative Assets/Models/PlayerCharacter.blend"
-dest_files=["res://.godot/imported/PlayerCharacter.blend-346be6324bdd81355868728c5035a91d.scn"]
+source_file="res://Creative Assets/Animations/Cutscene_Intro.blend"
+dest_files=["res://.godot/imported/Cutscene_Intro.blend-f4a3f42fed8ae916fbea7363681c987b.scn"]
 
 [params]
 
@@ -26,13 +26,24 @@ meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
-animation/fps=30
-animation/trimming=false
+animation/fps=24.0
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
-blender/nodes/visible=0
+_subresources={
+"nodes": {
+"PATH:Player_Armature/Skeleton3D": {
+"rest_pose/external_animation_library": null,
+"rest_pose/selected_animation": "Intro_Awaken"
+},
+"PATH:Spawn_Armature/Skeleton3D": {
+"rest_pose/external_animation_library": null,
+"rest_pose/selected_animation": "Intro_SpawnArm"
+}
+}
+}
+blender/nodes/visible=2
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
 blender/nodes/cameras=true
@@ -48,4 +59,4 @@ blender/materials/unpack_enabled=true
 blender/materials/export_materials=1
 blender/animation/limit_playback=true
 blender/animation/always_sample=true
-blender/animation/group_tracks=true
+blender/animation/group_tracks=false

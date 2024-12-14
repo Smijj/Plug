@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmapucjd5ojl"]
+[gd_scene load_steps=10 format=3 uid="uid://dmapucjd5ojl"]
 
 [ext_resource type="PackedScene" uid="uid://ddhxiie06mrmx" path="res://Scenes/Player.tscn" id="1_56bp7"]
-[ext_resource type="PackedScene" uid="uid://b8t63rww7ob5v" path="res://Scenes/Set.tscn" id="2_e6it4"]
-[ext_resource type="PackedScene" uid="uid://ddq38gs1w1plm" path="res://Scenes/Platform_T1.tscn" id="3_f5rx6"]
-[ext_resource type="PackedScene" uid="uid://di560gvx02elj" path="res://Scenes/Platform_T2.tscn" id="4_36ity"]
-[ext_resource type="PackedScene" uid="uid://b7td8g327rc4e" path="res://Scenes/Beam.tscn" id="5_cyhem"]
-[ext_resource type="PackedScene" uid="uid://svjxtjf3tf0v" path="res://Scenes/BeamStud.tscn" id="6_aupuw"]
+[ext_resource type="PackedScene" uid="uid://b31liu8vkiclc" path="res://Scenes/CutsceneManager.tscn" id="1_shafy"]
+[ext_resource type="PackedScene" uid="uid://b8t63rww7ob5v" path="res://Scenes/Environment.tscn" id="2_e6it4"]
+[ext_resource type="PackedScene" uid="uid://ddq38gs1w1plm" path="res://Scenes/Platforms/Platform_T1.tscn" id="3_f5rx6"]
+[ext_resource type="PackedScene" uid="uid://di560gvx02elj" path="res://Scenes/Platforms/Platform_T2.tscn" id="4_36ity"]
+[ext_resource type="PackedScene" uid="uid://b7td8g327rc4e" path="res://Scenes/Platforms/Beam.tscn" id="5_cyhem"]
+[ext_resource type="PackedScene" uid="uid://svjxtjf3tf0v" path="res://Scenes/Platforms/BeamStud.tscn" id="6_aupuw"]
 
 [sub_resource type="Environment" id="Environment_erev4"]
 glow_enabled = true
@@ -28,6 +29,9 @@ adjustment_saturation = 1.09
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_erev4")
 
+[node name="CutsceneManager" parent="." instance=ExtResource("1_shafy")]
+_RefreshCutsceneAnimReferences = false
+
 [node name="Ground" type="StaticBody3D" parent="."]
 
 [node name="Col_Ground" type="CollisionShape3D" parent="Ground"]
@@ -35,7 +39,7 @@ shape = SubResource("WorldBoundaryShape3D_cqsp5")
 
 [node name="Player" parent="." instance=ExtResource("1_56bp7")]
 
-[node name="Set" parent="." instance=ExtResource("2_e6it4")]
+[node name="Environment" parent="." instance=ExtResource("2_e6it4")]
 
 [node name="Platforms" type="Node3D" parent="."]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cawk5rhg0juk4"
-path="res://.godot/imported/GameSetDesign.blend-bf0c29c34e4e16ab73a80e7a4537a6ba.scn"
+path="res://.godot/imported/GameSetDesign.blend-2ca4a89dc07ca9496afe137d60311306.scn"
 
 [deps]
 
-source_file="res://Scenes/GameSetDesign.blend"
-dest_files=["res://.godot/imported/GameSetDesign.blend-bf0c29c34e4e16ab73a80e7a4537a6ba.scn"]
+source_file="res://Creative Assets/Environments/GameSetDesign.blend"
+dest_files=["res://.godot/imported/GameSetDesign.blend-2ca4a89dc07ca9496afe137d60311306.scn"]
 
 [params]
 

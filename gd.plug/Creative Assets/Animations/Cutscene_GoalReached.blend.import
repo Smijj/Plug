@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bjmy1smd2yon5"
-path="res://.godot/imported/Cutscene_Intro.blend-f4a3f42fed8ae916fbea7363681c987b.scn"
+uid="uid://di3p2b7qun42j"
+path="res://.godot/imported/Cutscene_GoalReached.blend-d36e64348a61fad44d9a1b4fc14b35c3.scn"
 
 [deps]
 
-source_file="res://Creative Assets/Animations/Cutscene_Intro.blend"
-dest_files=["res://.godot/imported/Cutscene_Intro.blend-f4a3f42fed8ae916fbea7363681c987b.scn"]
+source_file="res://Creative Assets/Animations/Cutscene_GoalReached.blend"
+dest_files=["res://.godot/imported/Cutscene_GoalReached.blend-d36e64348a61fad44d9a1b4fc14b35c3.scn"]
 
 [params]
 
 nodes/root_type="Node3D"
-nodes/root_name="Cutscene_Intro"
+nodes/root_name="Cutscene_GoalReached"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -27,7 +27,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=24.0
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -48,12 +48,7 @@ _subresources={
 },
 "nodes": {
 "PATH:Player_Armature/Skeleton3D": {
-"rest_pose/external_animation_library": null,
-"rest_pose/selected_animation": "Intro_Awaken"
-},
-"PATH:Spawn_Armature/Skeleton3D": {
-"rest_pose/external_animation_library": null,
-"rest_pose/selected_animation": "Intro_SpawnArm"
+"rest_pose/external_animation_library": null
 }
 }
 }

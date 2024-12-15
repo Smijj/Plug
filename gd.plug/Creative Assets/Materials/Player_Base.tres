@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ci5w0r4sba5e4"]
+
+[resource]
+resource_name = "Player_Base"
+cull_mode = 2
+albedo_color = Color(0.741385, 0.741385, 0.741385, 1)
+metallic = 0.75
+roughness = 0.86

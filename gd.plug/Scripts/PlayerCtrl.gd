@@ -1,5 +1,5 @@
+class_name PlayerCtrl
 extends CharacterBody3D
-
 
 @export var SPEED:float = 5.0
 @export var JUMP_VELOCITY:float = 4.5
@@ -7,13 +7,34 @@ extends CharacterBody3D
 
 @export var _Anim: AnimationPlayer
 @export var _CharacterModel: Node3D
+@export var _Camera: Camera3D
 
 var _OnGroundLastFrame: bool = true
 var _MovingLastFrame: bool = false
 var _Jumping: bool = false
 var _ModelLookPos: Vector3 = Vector3.ZERO
 
+var _StartingPos:Vector3 = Vector3.ZERO
+
+func _init() -> void:
+	StateManager.GameStateChanged.connect(_OnGameStateChanged)
+
+func _ready() -> void:
+	_StartingPos = global_position
+
+func _OnGameStateChanged(newState) -> void:
+	# Disable the player camera unless the gamestate is GAMEPLAY
+	if newState == StateManager.GAMEPLAY:
+		if !_Camera.current: _Camera.current = true
+		visible = true
+	else:
+		if _Camera.current: _Camera.current = false
+		visible = false
+
 func _physics_process(delta: float) -> void:
+	# Dont allow the player to move if the gamestate isnt set to GAMEPLAY
+	if StateManager.GameState != StateManager.GAMEPLAY:
+		return
 	
 	# If you just landed on the and wen't on the ground last frame, play idle anim
 	if is_on_floor() and !_OnGroundLastFrame:
@@ -54,3 +75,6 @@ func _physics_process(delta: float) -> void:
 		_MovingLastFrame = false
 
 	move_and_slide()
+
+func ResetPlayerPos() ->void:
+	global_position = _StartingPos

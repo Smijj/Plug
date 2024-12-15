@@ -1,33 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://b31liu8vkiclc"]
+[gd_scene load_steps=4 format=3 uid="uid://b31liu8vkiclc"]
 
-[ext_resource type="Script" path="res://Scenes/CutsceneManager.gd" id="1_084lj"]
+[ext_resource type="Script" path="res://Scripts/CutsceneManager.gd" id="1_084lj"]
 [ext_resource type="PackedScene" uid="uid://bjmy1smd2yon5" path="res://Creative Assets/Animations/Cutscene_Intro.blend" id="1_yjmsw"]
+[ext_resource type="PackedScene" uid="uid://di3p2b7qun42j" path="res://Creative Assets/Animations/Cutscene_GoalReached.blend" id="3_wp4q2"]
 
-[node name="CutsceneManager" type="Node3D" node_paths=PackedStringArray("_CutsceneNodes")]
+[node name="CutsceneManager" type="Node3D" node_paths=PackedStringArray("_CutsceneAnimationPlayers")]
 script = ExtResource("1_084lj")
-_RefreshCutsceneAnimReferences = true
-_CutsceneNodes = [NodePath("Cutscene_Intro")]
-Cutscenes = {
-"Cutscene_Intro": Object(AnimationPlayer,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":1,"libraries":{
-"": null
-},"autoplay":"","playback_auto_capture":true,"playback_auto_capture_duration":-1.0,"playback_auto_capture_transition_type":0,"playback_auto_capture_ease_type":0,"playback_default_blend_time":0.0,"speed_scale":1.0,"movie_quit_on_finish":false,"blend_times":[],"script":null)
-
-}
+_CutsceneAnimationPlayers = [NodePath("Cutscene_Intro/AnimationPlayer"), NodePath("Cutscene_GoalReached/AnimationPlayer")]
 
 [node name="Cutscene_Intro" parent="." instance=ExtResource("1_yjmsw")]
 
 [node name="Skeleton3D" parent="Cutscene_Intro/Spawn_Armature" index="0"]
-bones/0/rotation = Quaternion(0.793353, -1.67739e-07, -1.03973e-07, 0.608762)
+bones/0/rotation = Quaternion(0.707107, -1.48215e-07, -1.27142e-07, 0.707107)
+
+[node name="Player_Armature" parent="Cutscene_Intro" index="1"]
+transform = Transform3D(0.395693, 0, -0.151892, 0, 0.423845, 0, 0.151892, 0, 0.395693, 5.41181, 2.38419e-07, -14.5579)
 
 [node name="Skeleton3D" parent="Cutscene_Intro/Player_Armature" index="0"]
-bones/0/position = Vector3(0, 0, -0.202964)
-bones/1/rotation = Quaternion(-3.13947e-08, 0.695809, 0.718227, -3.04148e-08)
-bones/2/rotation = Quaternion(0.129173, -3.58471e-08, 5.76519e-09, 0.991622)
-bones/3/rotation = Quaternion(0.0557229, 2.27478e-10, 2.12626e-09, 0.998446)
-bones/4/rotation = Quaternion(0.999874, 2.34635e-09, -6.05891e-08, -0.0158516)
-bones/5/position = Vector3(0.950045, 0.552292, 0.00347387)
+bones/1/rotation = Quaternion(-2.17118e-08, 0.695809, 0.718227, -2.07472e-08)
+bones/4/rotation = Quaternion(0.999874, 2.58182e-09, -7.45151e-08, -0.0158516)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.0158516, -3.72356e-08, -6.66502e-10, 0.999874)
+bones/6/rotation = Quaternion(0.0158516, -3.72356e-08, -6.66502e-10, 0.999874)
 
-[node name="Camera_Intro" parent="Cutscene_Intro" index="3"]
-transform = Transform3D(0.93358, -2.39372e-08, -0.358368, 2.97704e-08, 1, 1.07595e-08, 0.358368, -2.07136e-08, 0.93358, -47.5813, 1.23798, 4.71011)
+[node name="Camera_Intro1" parent="Cutscene_Intro" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.68587e-07, 0, 1.68587e-07, 1, -47.5813, 1.23798, 4.71011)
+
+[node name="Cutscene_GoalReached" parent="." instance=ExtResource("3_wp4q2")]
+
+[node name="Skeleton3D" parent="Cutscene_GoalReached/Player_Armature" index="0"]
+bones/0/position = Vector3(0.22, 0, 0)
+bones/1/position = Vector3(0, 0, 0)
+bones/1/rotation = Quaternion(-3.13947e-08, 0.695809, 0.718227, -3.04148e-08)
+bones/2/rotation = Quaternion(0.114667, -2.09663e-08, 5.51083e-09, 0.993404)
+bones/3/rotation = Quaternion(0.0762979, 1.11065e-08, -7.59891e-10, 0.997085)
+bones/4/position = Vector3(1.24686e-07, 1.58829, -0.254452)
+bones/4/rotation = Quaternion(0.999874, 2.34635e-09, -6.05891e-08, -0.0158516)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.0158516, -4.36839e-08, -6.92549e-10, 0.999874)
+bones/6/position = Vector3(-0.950049, 0.552299, 0.00348204)
+bones/6/rotation = Quaternion(0.0158516, -4.36839e-08, -6.92549e-10, 0.999874)
+
+[node name="Camera" parent="Cutscene_GoalReached" index="1"]
+transform = Transform3D(0.961796, -0.0651724, -0.265896, 3.72529e-09, 0.971251, -0.238058, 0.273766, 0.228964, 0.934145, -1.23372, 46.3149, 4.44808)
 
 [editable path="Cutscene_Intro"]
+[editable path="Cutscene_GoalReached"]

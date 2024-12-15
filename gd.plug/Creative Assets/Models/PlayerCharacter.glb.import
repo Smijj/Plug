@@ -5430,6 +5430,20 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": 0
 }
+},
+"materials": {
+"Player_Accents": {
+"use_external/enabled": true,
+"use_external/path": "res://Creative Assets/Materials/Player_Accents.tres"
+},
+"Player_Base": {
+"use_external/enabled": true,
+"use_external/path": "res://Creative Assets/Materials/Player_Base.tres"
+},
+"Player_Trim": {
+"use_external/enabled": true,
+"use_external/path": "res://Creative Assets/Materials/Player_Trim.tres"
+}
 }
 }
 gltf/naming_version=1

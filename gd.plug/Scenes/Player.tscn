@@ -7,7 +7,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pmynx"]
 margin = 0.1
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_Anim", "_CharacterModel")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_Anim", "_CharacterModel", "_Camera")]
 safe_margin = 0.005
 script = ExtResource("1_sjcve")
 SPEED = 9.0
@@ -15,6 +15,7 @@ JUMP_VELOCITY = 15.0
 RotationSmoothing = 0.3
 _Anim = NodePath("PlayerCharacter/AnimationPlayer")
 _CharacterModel = NodePath("PlayerCharacter")
+_Camera = NodePath("CameraOrigin/SpringArm3D/Camera3D")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_1uq68")]
 

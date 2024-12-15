@@ -16,13 +16,12 @@ func _input(event: InputEvent) -> void:
 		StateManager.GameState = StateManager.GAMEPLAY
 	# Win Game
 	if event.is_action_pressed("3"):
-		_CutsceneManager.PlayCutscene("Cutscene_GoalReached", StateManager.STARTMENU, "GoalReached")
+		_CutsceneManager.PlayCutscene("Cutscene_GoalReached", "GoalReached")
 
 func _on_col_goal_body_entered(body: Node3D) -> void:
 	# Play goal reach anim
 	# return to the start menu when thats finished
-	_CutsceneManager.PlayCutscene("Cutscene_GoalReached", StateManager.STARTMENU, "GoalReached")
-	#ReturnToStartMenu()
+	_CutsceneManager.PlayCutscene("Cutscene_GoalReached", "GoalReached")
 
 func ReturnToStartMenu() -> void:
 	# Instead of jumpiong straight to the startmenu, could also create an animation to get back there
@@ -32,7 +31,7 @@ func StartGame() -> void:
 	# While intro cutscene is playing:
 	# reset player pos
 	Player.ResetPlayerPos()
-	_CutsceneManager.PlayCutscene("Cutscene_Intro", StateManager.GAMEPLAY, "Intro")
+	_CutsceneManager.PlayCutscene("Cutscene_Intro", "Intro")
 	
 	# When intro cutscene ends:
 		# hide cutscene player model - might be able to do this in the animation itself

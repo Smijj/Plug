@@ -1,48 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://b31liu8vkiclc"]
+[gd_scene load_steps=7 format=3 uid="uid://b31liu8vkiclc"]
 
 [ext_resource type="Script" path="res://Scripts/CutsceneManager.gd" id="1_084lj"]
 [ext_resource type="PackedScene" uid="uid://bjmy1smd2yon5" path="res://Creative Assets/Animations/Cutscene_Intro.blend" id="1_yjmsw"]
+[ext_resource type="Script" path="res://Scripts/CutsceneData.gd" id="2_ai1bq"]
 [ext_resource type="PackedScene" uid="uid://di3p2b7qun42j" path="res://Creative Assets/Animations/Cutscene_GoalReached.blend" id="3_wp4q2"]
 
-[node name="CutsceneManager" type="Node3D" node_paths=PackedStringArray("_CutsceneAnimationPlayers")]
+[sub_resource type="Resource" id="Resource_a6u8b"]
+script = ExtResource("2_ai1bq")
+Name = "Cutscene_Intro"
+CutsceneNodePath = NodePath("Cutscene_Intro")
+VisiblePreCutscene = true
+VisiblePostCutscene = true
+NewGameState = 3
+
+[sub_resource type="Resource" id="Resource_b8jol"]
+script = ExtResource("2_ai1bq")
+Name = "Cutscene_GoalReached"
+CutsceneNodePath = NodePath("Cutscene_GoalReached")
+VisiblePreCutscene = false
+VisiblePostCutscene = false
+NewGameState = 1
+
+[node name="CutsceneManager" type="Node3D"]
 script = ExtResource("1_084lj")
-_CutsceneAnimationPlayers = [NodePath("Cutscene_Intro/AnimationPlayer"), NodePath("Cutscene_GoalReached/AnimationPlayer")]
+_CutsceneSettings = Array[Object]([SubResource("Resource_a6u8b"), SubResource("Resource_b8jol")])
 
 [node name="Cutscene_Intro" parent="." instance=ExtResource("1_yjmsw")]
 
-[node name="Skeleton3D" parent="Cutscene_Intro/Spawn_Armature" index="0"]
-bones/0/rotation = Quaternion(0.707107, -1.48215e-07, -1.27142e-07, 0.707107)
-
-[node name="Player_Armature" parent="Cutscene_Intro" index="1"]
-transform = Transform3D(0.395693, 0, -0.151892, 0, 0.423845, 0, 0.151892, 0, 0.395693, 5.41181, 2.38419e-07, -14.5579)
-
-[node name="Skeleton3D" parent="Cutscene_Intro/Player_Armature" index="0"]
-bones/1/rotation = Quaternion(-2.17118e-08, 0.695809, 0.718227, -2.07472e-08)
-bones/4/rotation = Quaternion(0.999874, 2.58182e-09, -7.45151e-08, -0.0158516)
-bones/4/scale = Vector3(1, 1, 1)
-bones/5/rotation = Quaternion(0.0158516, -3.72356e-08, -6.66502e-10, 0.999874)
-bones/6/rotation = Quaternion(0.0158516, -3.72356e-08, -6.66502e-10, 0.999874)
-
-[node name="Camera_Intro1" parent="Cutscene_Intro" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, -1.68587e-07, 0, 1.68587e-07, 1, -47.5813, 1.23798, 4.71011)
-
 [node name="Cutscene_GoalReached" parent="." instance=ExtResource("3_wp4q2")]
-
-[node name="Skeleton3D" parent="Cutscene_GoalReached/Player_Armature" index="0"]
-bones/0/position = Vector3(0.22, 0, 0)
-bones/1/position = Vector3(0, 0, 0)
-bones/1/rotation = Quaternion(-3.13947e-08, 0.695809, 0.718227, -3.04148e-08)
-bones/2/rotation = Quaternion(0.114667, -2.09663e-08, 5.51083e-09, 0.993404)
-bones/3/rotation = Quaternion(0.0762979, 1.11065e-08, -7.59891e-10, 0.997085)
-bones/4/position = Vector3(1.24686e-07, 1.58829, -0.254452)
-bones/4/rotation = Quaternion(0.999874, 2.34635e-09, -6.05891e-08, -0.0158516)
-bones/4/scale = Vector3(1, 1, 1)
-bones/5/rotation = Quaternion(0.0158516, -4.36839e-08, -6.92549e-10, 0.999874)
-bones/6/position = Vector3(-0.950049, 0.552299, 0.00348204)
-bones/6/rotation = Quaternion(0.0158516, -4.36839e-08, -6.92549e-10, 0.999874)
-
-[node name="Camera" parent="Cutscene_GoalReached" index="1"]
-transform = Transform3D(0.961796, -0.0651724, -0.265896, 3.72529e-09, 0.971251, -0.238058, 0.273766, 0.228964, 0.934145, -1.23372, 46.3149, 4.44808)
-
-[editable path="Cutscene_Intro"]
-[editable path="Cutscene_GoalReached"]

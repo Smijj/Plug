@@ -5,6 +5,17 @@ extends Node3D
 @export var _CamerYPivot :Node3D
 @export var _CameraXPivot :Node3D
 
+func _init() -> void:
+	StateManager.GameStateChanged.connect(_OnGameStateChanged)
+
+func _OnGameStateChanged(newState) -> void:
+	# Disable the player camera unless the gamestate is GAMEPLAY
+	if newState == StateManager.STARTMENU:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		pass
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 

@@ -1,0 +1,143 @@
+[gd_scene load_steps=5 format=3 uid="uid://boj1bp7r1llfm"]
+
+[ext_resource type="PackedScene" uid="uid://jmw8mikqd3w7" path="res://Creative Assets/Models/Plug.fbx" id="1_pvxol"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dcnwm"]
+height = 0.383295
+radius = 0.251335
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_loa7a"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_khsme"]
+radius = 0.0701429
+height = 0.397128
+
+[node name="Plug" type="Node3D"]
+
+[node name="Main_Rigid" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main_Rigid"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.166667, 0, 0)
+shape = SubResource("CylinderShape3D_dcnwm")
+
+[node name="Plug_Model" parent="Main_Rigid" instance=ExtResource("1_pvxol")]
+transform = Transform3D(0.286, 0, 0, 0, 0.286, 0, 0, 0, 0.286, 0, 0, 0)
+
+[node name="RopeBody_0" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.759498, 0, 0)
+gravity_scale = 0.1
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="RopeBody_0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.205033, 0, 0)
+node_a = NodePath("../../Main_Rigid")
+node_b = NodePath("..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_0"]
+transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0.0406218, 0, 0)
+mesh = SubResource("CapsuleMesh_loa7a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_0"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_khsme")
+
+[node name="RopeBody_1" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10953, 0, 0)
+gravity_scale = 0.1
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="RopeBody_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.205033, 0, 0)
+node_a = NodePath("../../RopeBody_0")
+node_b = NodePath("..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_1"]
+transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_loa7a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_1"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_khsme")
+
+[node name="RopeBody_2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46771, 0, 0)
+gravity_scale = 0.1
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="RopeBody_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.205033, 0, 0)
+node_a = NodePath("../../RopeBody_1")
+node_b = NodePath("..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_2"]
+transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_loa7a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_2"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_khsme")
+
+[node name="RopeBody_3" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.82089, 0, 0)
+gravity_scale = 0.1
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="RopeBody_3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.205033, 0, 0)
+node_a = NodePath("../../RopeBody_2")
+node_b = NodePath("..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_3"]
+transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_loa7a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_3"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_khsme")
+
+[node name="RopeBody_4" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.19766, 0, 0)
+gravity_scale = 0.1
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="RopeBody_4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.205033, 0, 0)
+node_a = NodePath("../../RopeBody_3")
+node_b = NodePath("..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_4"]
+transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_loa7a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_4"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_khsme")
+
+[node name="RopeBody_5" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5251, 0, 0)
+gravity_scale = 0.1
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="RopeBody_5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.205033, 0, 0)
+node_a = NodePath("../../RopeBody_4")
+node_b = NodePath("..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_5"]
+transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_loa7a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_5"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_khsme")
+
+[node name="RopeBody_6" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.88534, 0, 0)
+gravity_scale = 0.1
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="RopeBody_6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.205033, 0, 0)
+node_a = NodePath("../../RopeBody_5")
+node_b = NodePath("..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_6"]
+transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_loa7a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_6"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_khsme")

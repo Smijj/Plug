@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 StateManager="*res://Scripts/StateManager.gd"
 
+[display]
+
+window/size/mode=2
+window/size/initial_position_type=2
+
 [input]
 
 Move_Forward={

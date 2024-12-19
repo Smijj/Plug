@@ -23,7 +23,7 @@ NewGameState = 1
 
 [node name="CutsceneManager" type="Node3D"]
 script = ExtResource("1_084lj")
-_CutsceneSettings = Array[Object]([SubResource("Resource_a6u8b"), SubResource("Resource_b8jol")])
+_CutsceneSettings = Array[ExtResource("2_ai1bq")]([SubResource("Resource_a6u8b"), SubResource("Resource_b8jol")])
 
 [node name="Cutscene_Intro" parent="." instance=ExtResource("1_yjmsw")]
 

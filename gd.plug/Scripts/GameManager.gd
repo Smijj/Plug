@@ -8,6 +8,9 @@ func _ready() -> void:
 	ReturnToStartMenu()
 
 func _input(event: InputEvent) -> void:
+	
+	
+	## DEBUG
 	# Start Game normally
 	if event.is_action_pressed("1"):
 		StartGame()

@@ -22,6 +22,13 @@ func _ready() -> void:
 func _input(event:InputEvent):
 	_HandleCamera(event)	# Handle Camera and player y rotation
 	
+	if event is InputEventMouseButton:
+		if StateManager.GameState == StateManager.STARTMENU:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			pass
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 func _HandleCamera(event:InputEvent):
 	if not event is InputEventMouseMotion: return
 	

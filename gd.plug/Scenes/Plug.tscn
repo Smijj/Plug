@@ -1,18 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://boj1bp7r1llfm"]
+[gd_scene load_steps=8 format=3 uid="uid://boj1bp7r1llfm"]
 
 [ext_resource type="Script" path="res://Scripts/Plug.gd" id="1_0yp5h"]
 [ext_resource type="PackedScene" uid="uid://jmw8mikqd3w7" path="res://Creative Assets/Models/Plug.fbx" id="1_pvxol"]
-[ext_resource type="CylinderMesh" uid="uid://c4r7trua26ud4" path="res://Creative Assets/Models/PlugCordBodyPiece.tres" id="2_2pxig"]
+[ext_resource type="Material" uid="uid://outbcmdmxm26" path="res://Creative Assets/Materials/PlugCord.tres" id="3_s63jj"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dcnwm"]
 height = 0.383295
 radius = 0.251335
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ngcwj"]
+material = ExtResource("3_s63jj")
+top_radius = 0.3
+bottom_radius = 0.238
+radial_segments = 24
+rings = 0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_khsme"]
 radius = 0.0701429
 height = 0.397128
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7xd7p"]
+radius = 0.0665144
 
 [node name="Plug" type="Node3D" node_paths=PackedStringArray("EndPos", "PlugBody")]
 script = ExtResource("1_0yp5h")
@@ -22,6 +30,7 @@ PlugBody = NodePath("Main_Rigid")
 [node name="Main_Rigid" type="RigidBody3D" parent="."]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
+axis_lock_angular_z = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main_Rigid"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.166667, 0, 0)
@@ -39,11 +48,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.205033, 0, 0)
 node_a = NodePath("../../Main_Rigid")
 node_b = NodePath("..")
 params/bias = 0.99
-angular_limit/bias = 0.61
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_0"]
 transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0.0406218, 0, 0)
-mesh = ExtResource("2_2pxig")
+mesh = SubResource("CylinderMesh_ngcwj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_0"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -61,7 +69,7 @@ solver_priority = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_1"]
 transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0, 0, 0)
-mesh = ExtResource("2_2pxig")
+mesh = SubResource("CylinderMesh_ngcwj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_1"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -79,7 +87,7 @@ solver_priority = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_2"]
 transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0, 0, 0)
-mesh = ExtResource("2_2pxig")
+mesh = SubResource("CylinderMesh_ngcwj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_2"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -97,7 +105,7 @@ solver_priority = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_3"]
 transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0, 0, 0)
-mesh = ExtResource("2_2pxig")
+mesh = SubResource("CylinderMesh_ngcwj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_3"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -115,7 +123,7 @@ solver_priority = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_4"]
 transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0, 0, 0)
-mesh = ExtResource("2_2pxig")
+mesh = SubResource("CylinderMesh_ngcwj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_4"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -133,7 +141,7 @@ solver_priority = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_5"]
 transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0, 0, 0)
-mesh = ExtResource("2_2pxig")
+mesh = SubResource("CylinderMesh_ngcwj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_5"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -151,7 +159,7 @@ solver_priority = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_6"]
 transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0, 0, 0)
-mesh = ExtResource("2_2pxig")
+mesh = SubResource("CylinderMesh_ngcwj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_6"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -169,7 +177,7 @@ solver_priority = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_7"]
 transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0, 0, 0)
-mesh = ExtResource("2_2pxig")
+mesh = SubResource("CylinderMesh_ngcwj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_7"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -187,7 +195,7 @@ solver_priority = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_8"]
 transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0, 0, 0)
-mesh = ExtResource("2_2pxig")
+mesh = SubResource("CylinderMesh_ngcwj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_8"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -205,7 +213,7 @@ solver_priority = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_9"]
 transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0, 0, 0)
-mesh = ExtResource("2_2pxig")
+mesh = SubResource("CylinderMesh_ngcwj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_9"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -223,7 +231,7 @@ solver_priority = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_10"]
 transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0, 0, 0)
-mesh = ExtResource("2_2pxig")
+mesh = SubResource("CylinderMesh_ngcwj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_10"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -241,21 +249,19 @@ solver_priority = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RopeBody_11"]
 transform = Transform3D(-6.11959e-09, 0.205, 0, -0.14, -8.96083e-09, 0, 0, 0, 0.14, 0, 0, 0)
-mesh = ExtResource("2_2pxig")
+mesh = SubResource("CylinderMesh_ngcwj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RopeBody_11"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_khsme")
 
 [node name="Body_EndPos" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5636, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6959, 0, 0)
 
 [node name="HingeJoint3D" type="HingeJoint3D" parent="Body_EndPos"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0076108, 0, 0)
 node_a = NodePath("../../RopeBody_11")
 node_b = NodePath("..")
-params/bias = 0.5
-motor/enable = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body_EndPos"]
 shape = SubResource("SphereShape3D_7xd7p")

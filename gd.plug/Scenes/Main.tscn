@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dmapucjd5ojl"]
+[gd_scene load_steps=20 format=3 uid="uid://dmapucjd5ojl"]
 
 [ext_resource type="PackedScene" uid="uid://ddhxiie06mrmx" path="res://Scenes/Player.tscn" id="1_56bp7"]
 [ext_resource type="PackedScene" uid="uid://b31liu8vkiclc" path="res://Scenes/CutsceneManager.tscn" id="1_shafy"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://svjxtjf3tf0v" path="res://Scenes/Platforms/BeamStud.tscn" id="6_aupuw"]
 [ext_resource type="PackedScene" uid="uid://boj1bp7r1llfm" path="res://Scenes/Plug.tscn" id="6_enur8"]
 [ext_resource type="Script" path="res://Scripts/CameraStartMenu.gd" id="9_aaib2"]
+[ext_resource type="FontFile" uid="uid://cvny5mhbrkahy" path="res://Creative Assets/SecularOne-Regular.ttf" id="11_wald7"]
 
 [sub_resource type="Environment" id="Environment_erev4"]
 glow_enabled = true
@@ -93,7 +94,10 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dmlqq"]
-size = Vector3(7.58344, 5.73083, 0.225)
+size = Vector3(8.26453, 5.73083, 0.225)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ehnuo"]
+size = Vector3(0.598418, 0.5, 0.5)
 
 [node name="Main" type="Node3D" node_paths=PackedStringArray("_CutsceneManager", "Player")]
 script = ExtResource("1_vlfal")
@@ -219,21 +223,45 @@ spot_attenuation = 0.39
 spot_angle = 14.59
 spot_angle_attenuation = 0.435274
 
-[node name="Plug" parent="StartMenu" node_paths=PackedStringArray("PinOveridePos", "Camera") instance=ExtResource("6_enur8")]
+[node name="Plug" parent="StartMenu" node_paths=PackedStringArray("PlugPos_Default", "PlugPos_Play", "PinOveridePos", "_GameManager", "Camera") instance=ExtResource("6_enur8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.6532, 1.207, 0.814812)
+PlugPos_Default = NodePath("../PlugPos_Default")
+PlugPos_Play = NodePath("../Col_PlaySocket")
 PinOveridePos = NodePath("../PlugCordEndPos")
+_GameManager = NodePath("../..")
 Camera = NodePath("../Camera_Menu")
 
 [node name="PlugCordEndPos" type="Node3D" parent="StartMenu"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.9766, 0.0045805, 0.814812)
 
-[node name="Area3D" type="Area3D" parent="StartMenu"]
+[node name="PlugPos_Default" type="Node3D" parent="StartMenu"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.4449, 0.0045805, 0.814812)
+
+[node name="Col_MouseCollisionPlane" type="Area3D" parent="StartMenu"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.5083, 1.15401, 0.778935)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StartMenu/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.81949, 1.75482, -0.12958)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StartMenu/Col_MouseCollisionPlane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.47895, 1.75482, -0.12958)
 shape = SubResource("BoxShape3D_dmlqq")
 
+[node name="Col_PlaySocket" type="Area3D" parent="StartMenu"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.5083, 1.22191, 0.811062)
+collision_layer = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StartMenu/Col_PlaySocket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0738525, 0, 0)
+shape = SubResource("BoxShape3D_ehnuo")
+
+[node name="Label3D" type="Label3D" parent="StartMenu"]
+transform = Transform3D(0.964617, -0.263654, 0, 0.263654, 0.964617, 0, 0, 0, 1, -50.6975, 2.91154, -2.49226)
+modulate = Color(0.255659, 0.255659, 0.255659, 1)
+outline_modulate = Color(0.882353, 0.462745, 0.137255, 1)
+text = "Plug n Play"
+font = ExtResource("11_wald7")
+font_size = 262
+outline_size = 14
+
 [connection signal="body_entered" from="Environment/Col_Goal" to="." method="_on_col_goal_body_entered"]
+[connection signal="body_entered" from="StartMenu/Col_PlaySocket" to="StartMenu/Plug" method="_OnPlaySocketColliderEntered"]
